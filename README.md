@@ -1,6 +1,8 @@
 # coco_dataset_resize
 Python tool you can use to resize the images and bounding boxes of your COCO based dataset.
 
+IMPORTANT NOTE : The current version resizes only the objects' bounding box but not yet the segmentation !
+
 ## Pre-requisites
 
 - In order to use this tool you need to have python >=3.6 installed on your machine.

@@ -73,7 +73,6 @@ if __name__ == "__main__":
     for i in range(0, len(data['annotations'])):
         anns[data['annotations'][i]['image_id']].append(data['annotations'][i])
         annsIdx[data['annotations'][i]['id']] = i
-        data['annotations'][i]['category_id'] = 1
     print("Dictionnaries built.")
 
     for img in data['images']:
