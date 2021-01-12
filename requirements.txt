@@ -1,0 +1,2 @@
+opencv-python
+imgaug>=0.4.0
