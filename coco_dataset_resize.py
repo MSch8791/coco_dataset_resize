@@ -21,7 +21,18 @@ def resizeImageAndBoundingBoxes(imgFile, bboxes, inputW, inputH, targetImgW, tar
     print("Reading image {0} ...".format(imgFile))
     img = cv2.imread(imgFile)
 
-    if inputW > inputH:
+    if targetImgH == targetImgW:
+        if inputW > inputH:
+            seq = iaa.Sequential([
+                                    iaa.Resize({"height": "keep-aspect-ratio", "width": targetImgW}),
+                                    iaa.PadToFixedSize(width=targetImgW, height=targetImgH)
+                                ])
+        else:
+            seq = iaa.Sequential([
+                                    iaa.Resize({"height": targetImgH, "width": "keep-aspect-ratio"}),
+                                    iaa.PadToFixedSize(width=targetImgW, height=targetImgH)
+                                ])
+    else if targetImgH > targetImgW:
         seq = iaa.Sequential([
                                 iaa.Resize({"height": "keep-aspect-ratio", "width": targetImgW}),
                                 iaa.PadToFixedSize(width=targetImgW, height=targetImgH)
